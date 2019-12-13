@@ -52,3 +52,21 @@ Rscript를 저장합니다
 ![11](https://user-images.githubusercontent.com/58128391/70780976-123f6d00-1dc9-11ea-94fc-4650ff2ca58b.png)
 
 카페글 특성상 판매가 완료되면 가격이 나오지 않기때문에 최신글을 10분마다 계속 추출합니다
+
+추출한값으로 자료분석을 해보았습니다
+Min.   :340000  
+1st Qu.:460000  
+Median :500000  
+Mean   :511539  
+3rd Qu.:555000  
+Max.   :650000  
+NA's   :8      
+
+여기서 나오는 결측값은 카페에서 정한 형식대로 게시물을 올리지않았을때 가격이 추출이 안된 경우입니다
+
+히스토그램을 그려보았습니다
+
+![13](https://user-images.githubusercontent.com/58128391/70782621-cab9e080-1dca-11ea-8e56-efebb0c03bab.png)
+
+
+
