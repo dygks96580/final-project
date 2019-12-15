@@ -15,7 +15,7 @@ browserName = "chrome"
 
  
 
-#³×ÀÌ¹ö ·Î±×ÀÎ
+#ë„¤ì´ë²„ ë¡œê·¸ì¸
 
 remDr$open()
 
@@ -29,19 +29,19 @@ login_btn<-remDr$findElement(using="class",value="btn_global")
 
 txt_id$setElementAttribute("value","dygks9658")
 
-txt_pw$setElementAttribute("value","throne847!!")
+txt_pw$setElementAttribute("value","**********")
 
 login_btn$clickElement()
 
  
 
-#Ä«Æä»çÀÌÆ®
+#ì¹´í˜ì‚¬ì´íŠ¸
 
 url="https://m.cafe.naver.com/ArticleSearchList.nhn?search.query=%ED%94%BC%EC%8A%A4%EB%A7%88%EC%9D%B4%EB%84%88%EC%8A%A4%EC%9B%90&search.menuid=371&search.searchBy=1&search.sortBy=date&search.clubid=10625158&search.option=0&search.defaultValue= "
 
  
 
-#½Å¹ßÆÇ¸ÅÁßÀÎ°ÍÁß °¡Àå ÃÖ½Å±Û·Î µé¾î°¨
+#ì‹ ë°œíŒë§¤ì¤‘ì¸ê²ƒì¤‘ ê°€ì¥ ìµœì‹ ê¸€ë¡œ ë“¤ì–´ê°
 
 remDr$navigate(url)
 
@@ -57,7 +57,7 @@ remDr$navigate(href[1])
 
  
 
-# ÆÇ¸Å°Ô½Ã±ÛÀÇ Á¤º¸°¡ ´Ù txt·Î µÇ¾îÀÖ¾î °¡°İºÎºĞÀ» ÃßÃâ
+# íŒë§¤ê²Œì‹œê¸€ì˜ ì •ë³´ê°€ ë‹¤ txtë¡œ ë˜ì–´ìˆì–´ ê°€ê²©ë¶€ë¶„ì„ ì¶”ì¶œ
 
 a=remDr$findElements('class', 'NHN_Writeform_Main')
 
@@ -86,11 +86,11 @@ price = as.numeric(a[b])*100000+as.numeric(a[b+1])*10000
 
  
 
-# °¡°İÀ» txt·Î ÀúÀå
+# ê°€ê²©ì„ txtë¡œ ì €ì¥
 
-cat(" ",price,file="C:/Users/korea/Desktop/¹Ú¿äÇÑ/µ¥ÀÌÅÍ½Ã°¢È­/price.txt",append=TRUE)
+cat(" ",price,file="C:/Users/korea/Desktop/ë°•ìš”í•œ/ë°ì´í„°ì‹œê°í™”/price.txt",append=TRUE)
 
-pr=read.table("C:/Users/korea/Desktop/¹Ú¿äÇÑ/µ¥ÀÌÅÍ½Ã°¢È­/price.txt")
+pr=read.table("C:/Users/korea/Desktop/ë°•ìš”í•œ/ë°ì´í„°ì‹œê°í™”/price.txt")
 
 pr=as.numeric(pr)
 
