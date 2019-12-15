@@ -1,0 +1,99 @@
+
+library(RSelenium)
+
+ 
+
+remDr <- remoteDriver(
+
+remoteServerAddr = "localhost",
+
+port = 4446L,
+
+browserName = "chrome"
+
+)
+
+ 
+
+#네이버 로그인
+
+remDr$open()
+
+remDr$navigate("https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com")
+
+txt_id<-remDr$findElement(using="id",value="id")
+
+txt_pw<-remDr$findElement(using="id",value="pw")
+
+login_btn<-remDr$findElement(using="class",value="btn_global")
+
+txt_id$setElementAttribute("value","dygks9658")
+
+txt_pw$setElementAttribute("value","throne847!!")
+
+login_btn$clickElement()
+
+ 
+
+#카페사이트
+
+url="https://m.cafe.naver.com/ArticleSearchList.nhn?search.query=%ED%94%BC%EC%8A%A4%EB%A7%88%EC%9D%B4%EB%84%88%EC%8A%A4%EC%9B%90&search.menuid=371&search.searchBy=1&search.sortBy=date&search.clubid=10625158&search.option=0&search.defaultValue= "
+
+ 
+
+#신발판매중인것중 가장 최신글로 들어감
+
+remDr$navigate(url)
+
+board=remDr$findElements('class', 'list_tit')
+
+box=board[[1]]$findChildElement('tag name', 'a')
+
+href=c()
+
+href=c(href,as.character(box$getElementAttribute('href')))
+
+remDr$navigate(href[1])
+
+ 
+
+# 판매게시글의 정보가 다 txt로 되어있어 가격부분을 추출
+
+a=remDr$findElements('class', 'NHN_Writeform_Main')
+
+a=unlist(lapply(aa, function(x) {x$getElementText()}))
+
+a=gsub("(\n)","",a)
+
+a=strsplit(as.character(a[1]), split= "")
+
+a=as.vector(a[[1]])
+
+b=which(a==":")[10]+1
+
+repeat {
+
+
+if (a[b]!=" ")break
+
+
+b=b+1
+
+
+}
+
+price = as.numeric(a[b])*100000+as.numeric(a[b+1])*10000
+
+ 
+
+# 가격을 txt로 저장
+
+cat(" ",price,file="C:/Users/korea/Desktop/박요한/데이터시각화/price.txt",append=TRUE)
+
+pr=read.table("C:/Users/korea/Desktop/박요한/데이터시각화/price.txt")
+
+pr=as.numeric(pr)
+
+summary(pr,na.rm=TRUE)
+
+hist(pr,na.rm=TRUE)
